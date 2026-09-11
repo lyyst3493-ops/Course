@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的大學課程快查</title>
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #2563eb;
+      --text-main: #1e293b;
+      --text-sub: #64748b;
+      --border: #e2e8f0;
+      --tag-bg: #eff6ff;
+      --tag-text: #1d4ed8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 20px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 6px 0;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+    }
+
+    .course-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      color: var(--primary);
+    }
+
+    .course-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 0.875rem;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .schedule-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .schedule-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+
+    .teacher-badge {
+      display: inline-block;
+      background-color: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+    }
+
+    .topic {
+      font-size: 0.95rem;
+      margin: 4px 0 0 0;
+      color: var(--text-main);
+    }
+
+    .notes {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>📚 我的專屬課程資訊</h1>
+      <p class="subtitle">隨時掌握授課老師與實際上課進度</p>
+    </header>
+
+    <!-- 課程卡片 1 -->
+    <div class="course-card">
+      <div class="course-title">臨床醫學導論</div>
+      <div class="course-meta">
+        <span class="meta-item">🕒 週二 3-4 節</span>
+        <span class="meta-item">📍 綜一館 201 教室</span>
+      </div>
+
+      <div class="section-title">👨‍🏫 授課老師與內容規劃</div>
+      <ul class="schedule-list">
+        <li class="schedule-item">
+          <span class="teacher-badge">第 1-4 週｜張教授</span>
+          <div class="topic"><strong>主題：</strong>心血管疾病臨床診斷</div>
+          <div class="notes">備註：第 4 週有小考，著重臨床案例分析</div>
+        </li>
+        <li class="schedule-item">
+          <span class="teacher-badge">第 5-9 週｜陳醫師</span>
+          <div class="topic"><strong>主題：</strong>神經內科常見病症</div>
+          <div class="notes">備註：PPT 會放數位學習網，不發紙本</div>
+        </li>
+        <li class="schedule-item">
+          <span class="teacher-badge">第 10-18 週｜林主任</span>
+          <div class="topic"><strong>主題：</strong>重症醫學與急診實務</div>
+          <div class="notes">備註：最後一週要交期末報告</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 課程卡片 2 -->
+    <div class="course-card">
+      <div class="course-title">人工智慧與醫療應用</div>
+      <div class="course-meta">
+        <span class="meta-item">🕒 週四 6-8 節</span>
+        <span class="meta-item">📍 資訊大樓 402 電腦教室</span>
+      </div>
+
+      <div class="section-title">👨‍🏫 授課老師與內容規劃</div>
+      <ul class="schedule-list">
+        <li class="schedule-item">
+          <span class="teacher-badge">前半學期｜黃老師</span>
+          <div class="topic"><strong>主題：</strong>Python 基礎與醫療資料處理</div>
+        </li>
+        <li class="schedule-item">
+          <span class="teacher-badge">後半學期｜劉教授</span>
+          <div class="topic"><strong>主題：</strong>醫療影像辨識模型實作</div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>
