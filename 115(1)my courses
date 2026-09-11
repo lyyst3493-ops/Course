@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的大學課程地圖</title>
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #2563eb;
+      --text-main: #1e293b;
+      --text-sub: #64748b;
+      --border: #e2e8f0;
+      --tag-bg: #eff6ff;
+      --tag-text: #1d4ed8;
+      --score-bg: #fef3c7;
+      --score-text: #b45309;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 20px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+    }
+
+    header {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 6px 0;
+    }
+
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 0.875rem;
+      margin: 0 0 16px 0;
+    }
+
+    /* 快速跳轉選單 */
+    .nav-menu {
+      background: var(--card-bg);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .nav-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-item {
+      color: var(--primary);
+      background: var(--tag-bg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    /* 課程卡片 */
+    .course-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      scroll-margin-top: 20px;
+    }
+
+    .course-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      color: var(--primary);
+    }
+
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.875rem;
+      color: var(--text-sub);
+      margin-bottom: 12px;
+    }
+
+    /* 計分方式標籤 */
+    .grading-box {
+      background-color: var(--score-bg);
+      color: var(--score-text);
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      margin: 0 0 8px 0;
+    }
+
+    .schedule-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .schedule-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+
+    .teacher-badge {
+      display: inline-block;
+      background-color: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .topic {
+      font-size: 0.9rem;
+      margin: 4px 0 0 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>📚 我的專屬課程地圖 (16 門課)</h1>
+      <p class="subtitle">點擊下方按鈕可快速跳轉至該課程</p>
+    </header>
+
+    <!-- 頂端快速目錄 (共 16 門) -->
+    <div class="nav-menu">
+      <div class="nav-title">快速跳轉選單：</div>
+      <div class="nav-links">
+        <a href="#c1" class="nav-item">1. 課程一</a>
+        <a href="#c2" class="nav-item">2. 課程二</a>
+        <a href="#c3" class="nav-item">3. 課程三</a>
+        <a href="#c4" class="nav-item">4. 課程四</a>
+        <a href="#c5" class="nav-item">5. 課程五</a>
+        <a href="#c6" class="nav-item">6. 課程六</a>
+        <a href="#c7" class="nav-item">7. 課程七</a>
+        <a href="#c8" class="nav-item">8. 課程八</a>
+        <a href="#c9" class="nav-item">9. 課程九</a>
+        <a href="#c10" class="nav-item">10. 課程十</a>
+        <a href="#c11" class="nav-item">11. 課程十一</a>
+        <a href="#c12" class="nav-item">12. 課程十二</a>
+        <a href="#c13" class="nav-item">13. 課程十三</a>
+        <a href="#c14" class="nav-item">14. 課程十四</a>
+        <a href="#c15" class="nav-item">15. 課程十五</a>
+        <a href="#c16" class="nav-item">16. 課程十六</a>
+      </div>
+    </div>
+
+    <!-- ===== 課程 1 ===== -->
+    <div class="course-card" id="c1">
+      <div class="course-title">1. 【請輸入第 1 門課程名稱】</div>
+      <div class="course-meta">
+        <span>🕒 【時間：例 週一 1-2 節】</span>
+        <span>📍 【教室：例 綜一 101】</span>
+      </div>
+      <div class="grading-box">
+        💯 <strong>計分方式：</strong>【例：期中 30%、期末 40%、平時 30%】
+      </div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item">
+          <span class="teacher-badge">【第 1-8 週｜老師 A】</span>
+          <div class="topic">【上課內容主題/備註】</div>
+        </li>
+        <li class="schedule-item">
+          <span class="teacher-badge">【第 9-18 週｜老師 B】</span>
+          <div class="topic">【上課內容主題/備註】</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 2 ===== -->
+    <div class="course-card" id="c2">
+      <div class="course-title">2. 【請輸入第 2 門課程名稱】</div>
+      <div class="course-meta">
+        <span>🕒 【時間】</span>
+        <span>📍 【教室】</span>
+      </div>
+      <div class="grading-box">
+        💯 <strong>計分方式：</strong>【請輸入計分方式】
+      </div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item">
+          <span class="teacher-badge">【老師/週次】</span>
+          <div class="topic">【授課內容】</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 3 ===== -->
+    <div class="course-card" id="c3">
+      <div class="course-title">3. 【請輸入第 3 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 4 ===== -->
+    <div class="course-card" id="c4">
+      <div class="course-title">4. 【請輸入第 4 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 5 ===== -->
+    <div class="course-card" id="c5">
+      <div class="course-title">5. 【請輸入第 5 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 6 ===== -->
+    <div class="course-card" id="c6">
+      <div class="course-title">6. 【請輸入第 6 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 7 ===== -->
+    <div class="course-card" id="c7">
+      <div class="course-title">7. 【請輸入第 7 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 8 ===== -->
+    <div class="course-card" id="c8">
+      <div class="course-title">8. 【請輸入第 8 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 9 ===== -->
+    <div class="course-card" id="c9">
+      <div class="course-title">9. 【請輸入第 9 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 10 ===== -->
+    <div class="course-card" id="c10">
+      <div class="course-title">10. 【請輸入第 10 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 11 ===== -->
+    <div class="course-card" id="c11">
+      <div class="course-title">11. 【請輸入第 11 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 12 ===== -->
+    <div class="course-card" id="c12">
+      <div class="course-title">12. 【請輸入第 12 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 13 ===== -->
+    <div class="course-card" id="c13">
+      <div class="course-title">13. 【請輸入第 13 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 14 ===== -->
+    <div class="course-card" id="c14">
+      <div class="course-title">14. 【請輸入第 14 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 15 ===== -->
+    <div class="course-card" id="c15">
+      <div class="course-title">15. 【請輸入第 15 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== 課程 16 ===== -->
+    <div class="course-card" id="c16">
+      <div class="course-title">16. 【請輸入第 16 門課程名稱】</div>
+      <div class="course-meta"><span>🕒 【時間】</span><span>📍 【教室】</span></div>
+      <div class="grading-box">💯 <strong>計分方式：</strong>【請輸入計分方式】</div>
+      <div class="section-title">👨‍🏫 授課老師與內容安排</div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="teacher-badge">【老師/週次】</span><div class="topic">【授課內容】</div></li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>
